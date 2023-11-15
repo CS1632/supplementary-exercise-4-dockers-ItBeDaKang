@@ -37,13 +37,13 @@ public class D3Test {
 
     @Before
     public void setUp() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
         driver = new FirefoxDriver();
         js = (JavascriptExecutor) driver;
         vars = new HashMap<String, Object>();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        driver = new ChromeDriver(options);
     }
 
     @After
